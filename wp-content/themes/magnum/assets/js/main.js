@@ -36,6 +36,11 @@
   $$('[data-quote]').forEach(function(a){a.addEventListener('click',function(e){var inline=document.getElementById('bao-gia');if(inline&&a.closest('.pd__btns'))return;e.preventDefault();openPop()})});
   if(pop){$$('[data-close]',pop).forEach(function(x){x.addEventListener('click',closePop)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closePop()})}
   if(/[?&]bg=(ok|err)/.test(location.search)&&!document.getElementById('bao-gia'))openPop();
+  // cỡ chữ người đọc: mỗi bậc 2px, từ -2 đến +4 bậc, nhớ lựa chọn trên máy
+  var fz=$$('.fsz');if(fz.length){var lv=0;try{lv=+localStorage.getItem('mg-fsz')||0}catch(e){}
+    function setFz(n){lv=Math.max(-2,Math.min(4,n));$$('.entry').forEach(function(e){e.style.setProperty('--fsd',lv*2+'px')});
+      fz.forEach(function(g){$('[data-fsz="-1"]',g).disabled=lv<=-2;$('[data-fsz="1"]',g).disabled=lv>=4});try{localStorage.setItem('mg-fsz',lv)}catch(e){}}
+    fz.forEach(function(g){$$('button',g).forEach(function(b){b.addEventListener('click',function(){var d=+b.dataset.fsz;setFz(d?lv+d:0)})})});setFz(lv)}
   // số chạy
   function count(el){var n=+el.dataset.count,s=el.dataset.suf||'';if(!n||n>100000)return;var t0=null;function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400);el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
   // hiện dần khi cuộn

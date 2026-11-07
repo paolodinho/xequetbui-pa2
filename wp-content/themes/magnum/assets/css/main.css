@@ -241,21 +241,64 @@ button{font:inherit;cursor:pointer}
 .pd__form{margin-top:60px}
 
 /* nội dung */
-.entry{color:#333;font-size:16px;min-width:0;overflow-wrap:break-word}
+.entry{--fs:calc(var(--cfs,17px) + var(--fsd,0px));color:var(--cc,#2B2B2B);font-family:var(--cf,var(--f));font-size:var(--fs);line-height:var(--clh,1.8);min-width:0;overflow-wrap:break-word;text-rendering:optimizeLegibility}
 .entry *{max-width:100%}
-.entry h2{font-size:24px;margin:1.6em 0 .6em}.entry h3{font-size:20px;margin:1.4em 0 .5em}
-.entry img{margin:18px auto;height:auto}
-.entry a{color:#B07F00;text-decoration:underline}
-.entry ul,.entry ol{padding-left:22px}
-.entry table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px;display:block;overflow-x:auto}
+.entry>*:first-child{margin-top:0}
+.entry p{margin:0 0 1.15em}
+.entry h2,.entry h3,.entry h4{font-family:var(--f);color:var(--ink);line-height:1.35;letter-spacing:-.01em;text-wrap:balance;scroll-margin-top:100px}
+.entry h2{font-size:var(--ch2,26px);font-weight:800;margin:1.9em 0 .7em;padding-bottom:.45em;border-bottom:1px solid var(--line);position:relative}
+.entry h2::after{content:"";position:absolute;left:0;bottom:-1px;width:56px;height:3px;background:var(--y)}
+.entry h3{font-size:var(--ch3,21px);font-weight:700;margin:1.6em 0 .55em}
+.entry h4{font-size:calc(var(--fs) + 1px);font-weight:700;margin:1.4em 0 .5em}
+.entry strong,.entry b{color:var(--ink);font-weight:700}
+.entry a{color:#8A6200;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.entry a:hover{color:var(--ink);text-decoration-color:var(--y)}
+.entry ul,.entry ol{margin:0 0 1.2em;padding-left:1.4em}
+.entry li{margin:.35em 0;padding-left:.2em}
+.entry li::marker{color:#B98A00}
+.entry ol li::marker{font-weight:700}
+.entry img{margin:1.4em auto;height:auto;border-radius:6px}
+.entry figure,.entry .wp-caption{margin:1.6em auto;max-width:100%}
+.entry figcaption,.entry .wp-caption-text,.entry p:has(> i:only-child),.entry p:has(> em:only-child){font-size:calc(var(--fs) - 2px);color:var(--mute);text-align:center;margin-top:-.6em}
+.entry blockquote{margin:1.6em 0;padding:16px 22px;border-left:4px solid var(--y);background:var(--gray);font-style:italic}
+.entry blockquote p:last-child{margin-bottom:0}
+.entry hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+.entry table{width:100%;border-collapse:collapse;margin:1.4em 0;font-size:calc(var(--fs) - 2px);line-height:1.55;display:block;overflow-x:auto}
 .entry table td,.entry table th{border:1px solid var(--line);padding:10px 14px;text-align:left;vertical-align:top}
 .entry table th,.entry table tr:first-child td{background:var(--gray);color:var(--ink);font-weight:700}
+.entry table tr:nth-child(even) td{background:#FAFAFA}
 .entry table.spec{display:table}
 .entry table.spec th{width:42%;background:var(--gray)}
-.entry table.spec tr:first-child td{background:#fff;font-weight:400;color:#333}
-.entry iframe{max-width:100%;width:100%;aspect-ratio:16/9;height:auto}
-.entry span[style]{font-family:inherit!important;font-size:inherit!important;color:inherit!important}
-.entry .wp-caption{max-width:100%}
+.entry table.spec tr:first-child td{background:#fff;font-weight:400;color:inherit}
+.entry iframe{max-width:100%;width:100%;aspect-ratio:16/9;height:auto;border:0;border-radius:6px;margin:1.4em 0}
+/* Nội dung chép từ web cũ mang style cứng (Arial 14px, margin/padding lệch): ép về chuẩn chữ bài viết */
+.entry [style]:not(a):not(img):not(iframe):not(table):not(td):not(th){font-family:inherit!important;color:inherit!important;line-height:inherit!important}
+.entry [style]:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(img):not(iframe){font-size:inherit!important}
+.entry h2[style]{font-size:var(--ch2,26px)!important}.entry h3[style]{font-size:var(--ch3,21px)!important}.entry h4[style]{font-size:calc(var(--fs) + 1px)!important}
+.entry p[style]{margin:0 0 1.15em!important;padding:0!important}
+.entry li[style],.entry li>span[style],.entry p>span[style],.entry p>strong[style]{margin:0!important;padding:0!important}
+.entry table[style] td[style],.entry td[style],.entry th[style]{font-family:inherit!important;font-size:inherit!important}
+/* Mục lục (chép từ web cũ, plugin không chạy): hộp gọn, bỏ nút bật tắt */
+.entry #ez-toc-container{background:var(--gray);border-left:4px solid var(--y);padding:18px 24px 14px;margin:1.6em 0 2em;font-size:calc(var(--fs) - 1px);line-height:1.55}
+.entry .ez-toc-title-container p:not(.ez-toc-title),.entry .ez-toc-title-toggle{display:none}
+.entry .ez-toc-title{font-family:var(--f);font-weight:800;color:var(--ink);font-size:15px;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.entry #ez-toc-container ul{list-style:none;padding:0;margin:0;counter-reset:toc}
+.entry #ez-toc-container ul ul{padding-left:1.4em;margin-top:.2em}
+.entry #ez-toc-container li{margin:.3em 0;padding:0;counter-increment:toc}
+.entry #ez-toc-container li::before{content:counters(toc,".") ". ";color:#8A6200;font-weight:700}
+.entry #ez-toc-container a{text-decoration:none;color:var(--ink)}
+.entry #ez-toc-container a:hover{color:#8A6200;text-decoration:underline}
+.dpanel.entry{max-width:var(--cw,820px)}
+/* Nút cỡ chữ cho người đọc */
+.fsz{display:inline-flex;align-items:center;gap:4px;font-family:var(--f);font-size:13px;color:var(--mute)}
+.fsz span{margin-right:4px}
+.fsz button{min-width:34px;height:30px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;font-size:13px;cursor:pointer;border-radius:4px;padding:0 6px;transition:background var(--t) var(--ease),border-color var(--t) var(--ease)}
+.fsz button:hover{border-color:var(--y);background:#FFF8E0}
+.fsz button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.fsz button:disabled{opacity:.4;cursor:default}
+.art__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.art__bar .art__d{margin:0}
+.dpanel .fsz{display:flex;justify-content:flex-end;margin:-12px 0 14px}
 
 /* giới thiệu */
 .abt{display:grid;grid-template-columns:6fr 6fr;gap:50px;align-items:center}
