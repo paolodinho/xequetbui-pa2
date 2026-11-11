@@ -499,7 +499,8 @@ button{font:inherit;cursor:pointer}
   .carousel__track{grid-auto-columns:88%}
   .qform{padding:24px 18px}.qform__g{grid-template-columns:1fr}
   .ftr__in{grid-template-columns:1fr;gap:30px}
-  .ftr__top{grid-template-columns:1fr;gap:14px}
+  .ftr__top{grid-template-columns:1fr;gap:14px;padding-top:40px;padding-bottom:24px}
+  .ftr__in{padding-top:32px;padding-bottom:40px}
   .acard{grid-template-columns:1fr}.acard__img img{min-height:200px;aspect-ratio:16/10}
   .gal4{grid-template-columns:1fr 1fr;gap:12px}
   .pd__specs{grid-template-columns:1fr}
@@ -513,3 +514,7 @@ button{font:inherit;cursor:pointer}
 /* 06/11: khoảng cách trước chân trang đều nhau ở mọi trang */
 main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 .ftr .cb{margin-top:4px}
+/* 12/11: .wrap mobile (padding:0 16px) từng xoá padding dọc chân trang -> logo dính khối trên */
+.ftr .ftr__top{padding-top:44px;padding-bottom:28px}
+.ftr .ftr__in{padding-top:36px;padding-bottom:44px}
+@media (max-width:560px){.ftr .ftr__top{padding-top:36px;padding-bottom:24px}.ftr .ftr__in{padding-top:28px;padding-bottom:36px}}
