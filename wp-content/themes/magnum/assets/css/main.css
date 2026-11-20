@@ -542,3 +542,36 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 .hotline-float small{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .hotline-float b{font-weight:700;font-size:23px;letter-spacing:.02em}
 @media (max-width:768px){.hotline-float{left:12px;bottom:18px;gap:9px;padding:6px 16px 6px 6px}.hotline-float i{width:40px;height:40px}.hotline-float b{font-size:18px}.ctabs a{flex:0 0 112px}}
+
+/* 20/11/2026: góp ý Doc tab Magnum */
+/* Giải pháp: ảnh bên trái, thẻ chữ đè lên mép ảnh */
+.sol{grid-template-columns:minmax(0,1fr) 450px;gap:0;align-items:center}
+.sol__img{grid-column:1;grid-row:1}
+.sol__t{grid-column:2;grid-row:1;margin-left:-24px;position:relative;z-index:2;background:#fff;padding:30px 30px;box-shadow:var(--sh3)}
+.sol__img--wide img{aspect-ratio:1380/840;object-fit:cover;width:100%}
+/* Nút Đọc thêm dạng viên thuốc, cắt ngang mép đáy thẻ tin */
+.ncard__b{padding-bottom:34px;margin-bottom:22px}
+.ncard__b .more{position:absolute;left:20px;bottom:-18px;margin:0;padding:10px 22px;background:var(--y);color:var(--ink);border-radius:999px;font-size:13px;box-shadow:0 6px 16px rgba(0,0,0,.14);transition:background var(--t-fast,.15s) ease,color var(--t-fast,.15s) ease}
+.ncard__b .more:hover{background:var(--ink);color:#fff}
+/* Hai hotline ở khối CTA */
+.inq__tels{display:flex;align-items:center;flex-wrap:wrap;gap:6px 18px}
+.inq__tels>span{flex:0 0 100%;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.inq__tels .inq__tel{display:inline-flex;align-items:center;gap:8px}
+.inq__tels i{font-style:normal;color:#aaa}
+.inq__tels i:last-of-type{display:none}
+/* Nút nổi cân đối: cùng cỡ, cùng lề phải, cách đều */
+.float{right:18px;bottom:104px;gap:12px}
+.float a,.totop{width:52px;height:52px;border-radius:50%}
+.totop{right:18px;bottom:40px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+@media (max-width:1100px){
+  .sol{display:flex;flex-direction:column}
+  .sol__img{width:100%}
+  .sol__t{margin:-36px 16px 0;padding:28px 24px;width:calc(100% - 32px)}
+}
+@media (max-width:768px){.float{bottom:96px;right:12px}.float a,.totop{width:46px;height:46px}.totop{right:12px;bottom:34px}}
+/* Tab Tải catalog */
+.cform{max-width:720px}
+.cform__s{margin:0 0 18px;color:#555}
+.cform__f{margin:16px 0 0;font-size:14px;color:#666}
+.cform__f a{color:var(--ink);text-decoration:underline;font-weight:600}
+.cform .qform__full{display:none}

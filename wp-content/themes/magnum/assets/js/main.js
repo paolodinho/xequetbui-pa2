@@ -33,6 +33,8 @@
   var pop=$('#qpop');
   function openPop(){if(!pop)return;pop.hidden=false;var i=$('input[name=name]',pop);if(i)setTimeout(function(){i.focus()},50)}
   function closePop(){if(pop)pop.hidden=true}
+  // Form tải catalog: gửi thông tin rồi tải file (cả khi chạy trên bản demo tĩnh)
+  $$('.cform').forEach(function(f){f.addEventListener('submit',function(e){var l=f.querySelector('.cform__f a'),u=l?l.href:f.getAttribute('data-file');if(!u||!f.checkValidity())return;e.preventDefault();var fd=new FormData(f);try{if(new URL(f.action,location.href).host===location.host)fetch(f.action,{method:'POST',body:fd}).catch(function(){})}catch(x){}var a=document.createElement('a');a.href=u;a.setAttribute('download','');document.body.appendChild(a);a.click();a.remove();var m=f.querySelector('.cform__ok');if(!m){m=document.createElement('p');m.className='qform__ok cform__ok';f.insertBefore(m,f.querySelector('.qform__g'))}m.textContent='Cảm ơn bạn. Catalog đang được tải về máy.'})});
   $$('[data-quote]').forEach(function(a){a.addEventListener('click',function(e){var inline=document.getElementById('bao-gia');if(inline&&a.closest('.pd__btns'))return;e.preventDefault();openPop()})});
   if(pop){$$('[data-close]',pop).forEach(function(x){x.addEventListener('click',closePop)});document.addEventListener('keydown',function(e){if(e.key==='Escape')closePop()})}
   if(/[?&]bg=(ok|err)/.test(location.search)&&!document.getElementById('bao-gia'))openPop();
