@@ -545,10 +545,10 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 
 /* 20/11/2026: góp ý Doc tab Magnum */
 /* Giải pháp: ảnh bên trái, thẻ chữ đè lên mép ảnh */
-.sol{grid-template-columns:minmax(0,1fr) 450px;gap:0;align-items:center}
-.sol__img{grid-column:1;grid-row:1}
-.sol__t{grid-column:2;grid-row:1;margin-left:-24px;position:relative;z-index:2;background:#fff;padding:30px 30px;box-shadow:var(--sh3)}
-.sol__img--wide img{aspect-ratio:1380/840;object-fit:cover;width:100%}
+.sol{grid-template-columns:minmax(0,1fr) 700px;gap:0;align-items:stretch}
+.sol__t{grid-column:1;grid-row:1;position:relative;z-index:1;background:#fff;padding:26px 76px 26px 40px;margin-right:-36px;box-shadow:var(--sh3);display:flex;flex-direction:column;justify-content:center}
+.sol__img{grid-column:2;grid-row:1;position:relative;z-index:2;min-height:0}
+.sol__img--wide img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;background:#fff;box-shadow:var(--sh3)}
 /* Nút Đọc thêm dạng viên thuốc, cắt ngang mép đáy thẻ tin */
 .ncard__b{padding-bottom:34px;margin-bottom:22px}
 .ncard__b .more{position:absolute;left:20px;bottom:-18px;margin:0;padding:10px 22px;background:var(--y);color:var(--ink);border-radius:999px;font-size:13px;box-shadow:0 6px 16px rgba(0,0,0,.14);transition:background var(--t-fast,.15s) ease,color var(--t-fast,.15s) ease}
@@ -565,8 +565,9 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 .totop{right:18px;bottom:40px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
 @media (max-width:1100px){
   .sol{display:flex;flex-direction:column}
-  .sol__img{width:100%}
-  .sol__t{margin:-36px 16px 0;padding:28px 24px;width:calc(100% - 32px)}
+  .sol__img{width:100%;margin-left:0;order:-1;justify-self:stretch}
+  .sol__img--wide img{aspect-ratio:1000/1255;height:auto;max-height:none;object-fit:contain}
+  .sol__t{margin:16px 16px 0;padding:28px 24px;width:calc(100% - 32px);z-index:3;display:block}
 }
 @media (max-width:768px){.float{bottom:96px;right:12px}.float a,.totop{width:46px;height:46px}.totop{right:12px;bottom:34px}}
 /* Tab Tải catalog */
@@ -579,3 +580,7 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 /* 20/11 chống rung header: chiều cao cố định, không co khi cuộn (co/giãn làm trang nhảy quanh mốc 60px) */
 .hdr{will-change:auto}.hdr__in{height:80px!important;transition:none!important}
 @media (max-width:560px){.hdr__in{height:72px!important}}
+
+/* 20/11 nut Doc them o danh sach tin: nut tron bo ngoai, dong bo the tin trang chu */
+.nrow__b .more{align-self:flex-start;margin-top:6px;padding:10px 22px;background:var(--y);color:var(--ink);border-radius:999px;font-size:13px;box-shadow:0 6px 16px rgba(0,0,0,.14);transition:background .15s ease,color .15s ease}
+.nrow__b .more:hover{background:var(--ink);color:#fff}
