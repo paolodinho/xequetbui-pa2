@@ -49,8 +49,8 @@ button{font:inherit;cursor:pointer}
 /* header */
 .hdr{background:#fff;position:sticky;top:0;z-index:50;transition:box-shadow var(--t) var(--ease)}
 .hdr.is-stuck{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.hdr__in{display:flex;align-items:center;gap:28px;height:92px;transition:height var(--t) var(--ease)}
-.hdr.is-stuck .hdr__in{height:72px}
+.hdr__in{display:flex;align-items:center;gap:28px;height:80px}
+.hdr.is-stuck .hdr__in{height:80px}
 .logo img{width:176px;height:auto}
 .nav{margin-left:auto}
 .nav>ul{display:flex;list-style:none;margin:0;padding:0;gap:4px;flex-wrap:nowrap}
@@ -575,3 +575,7 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 .cform__f{margin:16px 0 0;font-size:14px;color:#666}
 .cform__f a{color:var(--ink);text-decoration:underline;font-weight:600}
 .cform .qform__full{display:none}
+
+/* 20/11 chống rung header: chiều cao cố định, không co khi cuộn (co/giãn làm trang nhảy quanh mốc 60px) */
+.hdr{will-change:auto}.hdr__in{height:80px!important;transition:none!important}
+@media (max-width:560px){.hdr__in{height:72px!important}}
