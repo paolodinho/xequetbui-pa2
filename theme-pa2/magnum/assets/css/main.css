@@ -580,3 +580,7 @@ main>:last-child:not(.inq){padding-bottom:clamp(56px,7vw,90px)}
 /* 20/11 chống rung header: chiều cao cố định, không co khi cuộn (co/giãn làm trang nhảy quanh mốc 60px) */
 .hdr{will-change:auto}.hdr__in{height:80px!important;transition:none!important}
 @media (max-width:560px){.hdr__in{height:72px!important}}
+
+/* 20/11 nut Doc them o danh sach tin: nut tron bo ngoai, dong bo the tin trang chu */
+.nrow__b .more{align-self:flex-start;margin-top:6px;padding:10px 22px;background:var(--y);color:var(--ink);border-radius:999px;font-size:13px;box-shadow:0 6px 16px rgba(0,0,0,.14);transition:background .15s ease,color .15s ease}
+.nrow__b .more:hover{background:var(--ink);color:#fff}
