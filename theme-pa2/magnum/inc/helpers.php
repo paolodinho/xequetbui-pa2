@@ -175,7 +175,7 @@ function mg_handle_catalog() {
     $sp = get_the_title($pid);
     $body = "Họ tên: $name\nĐiện thoại: $phone\nSản phẩm: $sp\nNhu cầu: Tải catalog\nTrang gửi: $back";
     wp_insert_post(['post_type' => 'bao_gia', 'post_status' => 'publish', 'post_title' => "$name - $phone - Tải catalog - $sp", 'post_content' => $body]);
-    wp_mail(get_option('xqb_email') ?: get_option('admin_email'), "[Tải catalog] $name - $phone", $body);
+    wp_mail((get_option('xqb_email') ?: 'khachhang.icd@gmail.com, doanh.icd@gmail.com'), "[Tải catalog] $name - $phone", $body);
     wp_redirect($file); exit;
 }
 add_action('add_meta_boxes', function () {
